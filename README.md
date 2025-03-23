@@ -52,6 +52,10 @@ A powerful WordPress debugging tool that displays PHP errors from debug.log in a
 
 3. Delete the `debug.log` file located in the `wp-content` folder.
 
+## Questions
+
+If you have any questions, please leave them in the Issues section: https://github.com/pekarskyi/ip-debug-log-viewer/issues
+
 ## Changelog
 
 1.0 - 23.03.2025:
