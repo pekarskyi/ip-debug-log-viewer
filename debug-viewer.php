@@ -824,7 +824,7 @@ function get_error_color($error_type) {
             }
         }
     </script>
-    <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #dcdcde; color: #646970; font-size: 13px;">
+    <div style="text-align: center; padding-top: 20px; color: #646970; font-size: 13px;">
         IP Debug Log Viewer &#8226; Development by <a href="https://inwebpress.com" target="_blank">InwebPress</a> &#8226; Script on <a href="https://github.com/pekarskyi/ip-debug-log-viewer" target="_blank">GitHub</a>
     </div>
 </body>
