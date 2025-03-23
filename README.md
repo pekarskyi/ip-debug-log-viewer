@@ -30,7 +30,7 @@ A powerful WordPress debugging tool that displays PHP errors from debug.log in a
    - Make sure the file has the proper permissions (usually 644)
 
 3. **Activate Debug Mode**:
-   - Ensure WordPress debugging is enabled in your wp-config.php file:
+   - Ensure WordPress debugging is enabled in your `wp-config.php` file:
    ```php
    define('WP_DEBUG', true);
    define('WP_DEBUG_LOG', true);
@@ -40,6 +40,14 @@ A powerful WordPress debugging tool that displays PHP errors from debug.log in a
 
 4. **Access the Viewer**:
    - Option 1: Visit `https://your-site.com/debug-viewer.php` directly
+
+## After debugging
+
+1. Remove the `debug-viewer.php` file.
+
+2. In the `wp-config.php` file, change `define('WP_DEBUG', true);` to `define('WP_DEBUG', false);`.
+
+3. Delete the `debug.log` file located in the `wp-content` folder.
 
 ## Changelog
 
