@@ -11,6 +11,7 @@ A powerful WordPress debugging tool that displays PHP errors from debug.log in a
 - **Color-coded Errors**: Different error types (Fatal, Warning, Notice, etc.) are color-coded for quick identification
 - **Fatal Error Highlighting**: Fatal errors are prominently displayed in bright red
 - **Component Detection**: Automatically identifies which plugin, theme, or core component is causing the error
+- **WordPress Debug Status**: Displays the current state of WordPress debugging settings with colored indicators
 - **Server Environment Information**: Displays detailed information about your WordPress, PHP, and database configuration
 - **Plugins List**: Shows all installed plugins with their versions and activation status
 - **Themes List**: Shows all installed themes with their versions and activation status
@@ -20,6 +21,8 @@ A powerful WordPress debugging tool that displays PHP errors from debug.log in a
 ![https://github.com/pekarskyi/assets/raw/master/ip-debug-log-viewer/ip-debug-log-viewer_log_1-0.jpg](https://github.com/pekarskyi/assets/raw/master/ip-debug-log-viewer/ip-debug-log-viewer_log_1-0.jpg)
 
 ![https://github.com/pekarskyi/assets/raw/master/ip-debug-log-viewer/ip-debug-log-viewer_list-themes_1-0.jpg](https://github.com/pekarskyi/assets/raw/master/ip-debug-log-viewer/ip-debug-log-viewer_list-themes_1-0.jpg)
+
+![https://github.com/pekarskyi/assets/raw/master/ip-debug-log-viewer/ip-debug-log-viewer_log_status-debag_1-0.jpg](https://github.com/pekarskyi/assets/raw/master/ip-debug-log-viewer/ip-debug-log-viewer_log_status-debag_1-0.jpg)
 
 ## Installation
 

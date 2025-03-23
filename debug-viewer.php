@@ -302,6 +302,22 @@ function get_theme_name($theme_slug) {
 }
 
 /**
+ * Gets the debug settings from wp-config.php
+ */
+function get_debug_status() {
+    $debug_status = [
+        'WP_DEBUG' => defined('WP_DEBUG') && WP_DEBUG ? 'Enabled' : 'Disabled',
+        'WP_DEBUG_LOG' => defined('WP_DEBUG_LOG') && WP_DEBUG_LOG ? 'Enabled' : 'Disabled',
+        'WP_DEBUG_DISPLAY' => defined('WP_DEBUG_DISPLAY') ? (WP_DEBUG_DISPLAY ? 'Enabled' : 'Disabled') : 'Not defined (Default: Enabled)',
+        'SCRIPT_DEBUG' => defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? 'Enabled' : 'Disabled',
+        'SAVEQUERIES' => defined('SAVEQUERIES') && SAVEQUERIES ? 'Enabled' : 'Disabled',
+        'DISPLAY_ERRORS' => ini_get('display_errors') ? 'Enabled' : 'Disabled',
+    ];
+    
+    return $debug_status;
+}
+
+/**
  * Gets server environment information
  */
 function get_server_environment() {
@@ -315,9 +331,11 @@ function get_server_environment() {
         'Site URL' => get_bloginfo('url'),
         'Home URL' => get_home_url(),
         'Is Multisite' => is_multisite() ? 'Yes' : 'No',
-        'WP Debug Mode' => defined('WP_DEBUG') && WP_DEBUG ? 'Enabled' : 'Disabled',
         'WP Memory Limit' => WP_MEMORY_LIMIT,
     ];
+    
+    // Debug Information
+    $server_info['Debug Settings'] = get_debug_status();
     
     // Server Information
     $server_info['Server'] = [
@@ -640,6 +658,7 @@ function get_error_color($error_type) {
                 <a href="?view=server" class="button <?php echo ($view_mode == 'server') ? 'active' : ''; ?>">Server Environment</a>
                 <a href="?view=plugins" class="button <?php echo ($view_mode == 'plugins') ? 'active' : ''; ?>">Plugins List</a>
                 <a href="?view=themes" class="button <?php echo ($view_mode == 'themes') ? 'active' : ''; ?>">Themes List</a>
+                <a href="?view=debug" class="button <?php echo ($view_mode == 'debug') ? 'active' : ''; ?>">Debug Status</a>
             </div>
             
             <?php if ($view_mode == 'errors'): ?>
@@ -809,6 +828,65 @@ function get_error_color($error_type) {
                     <?php endforeach; ?>
                 </tbody>
             </table>
+        <?php endif; ?>
+        
+        <?php if ($view_mode == 'debug'): ?>
+            <?php $debug_info = get_debug_status(); ?>
+            <h2>WordPress Debug Status</h2>
+            
+            <div class="info-group">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Directive</th>
+                            <th>Status</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>WP_DEBUG</strong></td>
+                            <td><span style="color: <?php echo ($debug_info['WP_DEBUG'] === 'Enabled') ? '#4CAF50' : '#FF5252'; ?>; font-weight: 600;"><?php echo $debug_info['WP_DEBUG']; ?></span></td>
+                            <td>Main WordPress debugging switch. When enabled, all PHP errors, warnings, and notices are displayed.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WP_DEBUG_LOG</strong></td>
+                            <td><span style="color: <?php echo ($debug_info['WP_DEBUG_LOG'] === 'Enabled') ? '#4CAF50' : '#FF5252'; ?>; font-weight: 600;"><?php echo $debug_info['WP_DEBUG_LOG']; ?></span></td>
+                            <td>When enabled, all errors are logged to the debug.log file in the wp-content directory.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WP_DEBUG_DISPLAY</strong></td>
+                            <td><span style="color: <?php echo ($debug_info['WP_DEBUG_DISPLAY'] === 'Enabled') ? '#4CAF50' : (($debug_info['WP_DEBUG_DISPLAY'] === 'Disabled') ? '#FF5252' : '#FFC107'); ?>; font-weight: 600;"><?php echo $debug_info['WP_DEBUG_DISPLAY']; ?></span></td>
+                            <td>Determines whether or not PHP errors are displayed in the browser. Used in conjunction with WP_DEBUG.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SCRIPT_DEBUG</strong></td>
+                            <td><span style="color: <?php echo ($debug_info['SCRIPT_DEBUG'] === 'Enabled') ? '#4CAF50' : '#FF5252'; ?>; font-weight: 600;"><?php echo $debug_info['SCRIPT_DEBUG']; ?></span></td>
+                            <td>When enabled, WordPress uses unminified versions of JavaScript and CSS files.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SAVEQUERIES</strong></td>
+                            <td><span style="color: <?php echo ($debug_info['SAVEQUERIES'] === 'Enabled') ? '#4CAF50' : '#FF5252'; ?>; font-weight: 600;"><?php echo $debug_info['SAVEQUERIES']; ?></span></td>
+                            <td>Saves all SQL queries into a variable for analysis. Useful for optimizing database queries.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>display_errors</strong></td>
+                            <td><span style="color: <?php echo ($debug_info['DISPLAY_ERRORS'] === 'Enabled') ? '#4CAF50' : '#FF5252'; ?>; font-weight: 600;"><?php echo $debug_info['DISPLAY_ERRORS']; ?></span></td>
+                            <td>PHP setting that determines whether errors are displayed in the browser.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 20px; padding: 15px; background-color: #f6f7f7; border-left: 4px solid #2271b1; font-size: 14px;">
+                    <p><strong>How to configure:</strong> These directives can be set in the wp-config.php file. For example:</p>
+                    <pre style="background-color: #f0f0f1; padding: 10px; border-radius: 3px; overflow-x: auto;">
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
+define('SCRIPT_DEBUG', true);
+define('SAVEQUERIES', true);</pre>
+                </div>
+            </div>
         <?php endif; ?>
     </div>
     
