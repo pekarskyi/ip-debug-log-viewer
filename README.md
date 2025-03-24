@@ -58,5 +58,5 @@ If you have any questions, please leave them in the Issues section: https://gith
 
 ## Changelog
 
-1.0.0 - 23.03.2025:
+1.0.0 - 24.03.2025:
 - Stable release
