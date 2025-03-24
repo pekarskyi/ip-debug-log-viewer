@@ -6,7 +6,7 @@
  * with grouping of similar messages and color highlighting of error types.
  *
  * @package     IP Debug Log Viewer
- * @version     1.0
+ * @version     1.0.0
  * @author      InwebPress
  * @link        https://github.com/pekarskyi/ip-debug-log-viewer
  * @license     GPL-3.0+
@@ -903,7 +903,7 @@ define('SAVEQUERIES', true);</pre>
         }
     </script>
     <div style="text-align: center; padding-top: 20px; color: #646970; font-size: 13px;">
-        IP Debug Log Viewer &#8226; Development by <a href="https://inwebpress.com" target="_blank">InwebPress</a> &#8226; Script on <a href="https://github.com/pekarskyi/ip-debug-log-viewer" target="_blank">GitHub</a>
+        IP Debug Log Viewer 1.0.0 &#8226; Development by <a href="https://inwebpress.com" target="_blank">InwebPress</a> &#8226; Script on <a href="https://github.com/pekarskyi/ip-debug-log-viewer" target="_blank">GitHub</a>
     </div>
 </body>
 </html> 
