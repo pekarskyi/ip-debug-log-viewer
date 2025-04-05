@@ -26,13 +26,17 @@ A powerful WordPress debugging tool that displays PHP errors from debug.log in a
 
 ## Installation
 
-1. **Upload Files**:
-   - Upload `debug-viewer.php` to your WordPress site's root directory (where wp-config.php is located)
+### Option 1:
 
-2. **Verify Permissions**:
+1. Download the `IP Debug Log Viewer` (green Code button - Download ZIP).
+
+2. **Upload Files**:
+   - Upload `ip-debug-viewer.php` to your WordPress site's root directory (where wp-config.php is located)
+
+3. **Verify Permissions**:
    - Make sure the file has the proper permissions (usually 644)
 
-3. **Activate Debug Mode**:
+4. **Activate Debug Mode**:
    - Ensure WordPress debugging is enabled in your `wp-config.php` file:
    ```php
    define('WP_DEBUG', true);
@@ -42,11 +46,16 @@ A powerful WordPress debugging tool that displays PHP errors from debug.log in a
    ```
 
 4. **Access the Viewer**:
-   - Option 1: Visit `https://your-site.com/debug-viewer.php` directly
+   - Visit `https://your-site.com/ip-debug-viewer.php` directly
+ 
+### Option 2 (recommended):
+
+1. Install and activate this plugin (plugin installer): https://github.com/pekarskyi/ip-installer
+2. Using the `IP Installer` plugin, install `IP Debug Log Viewer`.
 
 ## After debugging
 
-1. Remove the `debug-viewer.php` file.
+1. Remove the `ip-debug-viewer.php` file.
 
 2. In the `wp-config.php` file, change `define('WP_DEBUG', true);` to `define('WP_DEBUG', false);`.
 
@@ -59,4 +68,4 @@ If you have any questions, please leave them in the Issues section: https://gith
 ## Changelog
 
 1.0.0 - 24.03.2025:
-- Stable release
+- Initial release
